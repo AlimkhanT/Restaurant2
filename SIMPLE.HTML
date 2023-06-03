@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple jQuery Example</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Code inside this function will be executed once the DOM is ready
+
+      // Example 1: Click Event
+      $('#myButton').click(function() {
+        alert('Button clicked!');
+      });
+
+      // Example 2: Hide/Show Element
+      $('#toggleButton').click(function() {
+        $('#myElement').toggle();
+      });
+
+      // Example 3: AJAX Request
+      $('#loadButton').click(function() {
+        $.ajax({
+          url: 'https://api.example.com/data',
+          method: 'GET',
+          success: function(response) {
+            $('#dataContainer').text(response);
+          },
+          error: function() {
+            alert('Error occurred while loading data.');
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <button id="myButton">Click me!</button>
+  <button id="toggleButton">Toggle Element</button>
+  <div id="myElement">This is a hidden element.</div>
+  <button id="loadButton">Load Data</button>
+  <div id="dataContainer"></div>
+</body>
+</html>
